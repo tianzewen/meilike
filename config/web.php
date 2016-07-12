@@ -3,6 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+	'defaultRoute' => 'wx',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -19,7 +20,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'wx/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

@@ -1,0 +1,18 @@
+.patientDiv{
+	margin-top:10px;
+	width:auto;padding:10px;
+	border:1px solid black;
+	cursor:pointer;
+}
+.patientInfo{
+	width:60%;
+	display:inline-block;
+}
+.patientType{
+	width:30%;
+	display:inline-block;
+}
+.patient_go{
+	width:5%;
+	display:inline-block;
+}

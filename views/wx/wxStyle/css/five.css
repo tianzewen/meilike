@@ -1,0 +1,89 @@
+*{padding:0;margin:0;font-family:"微软雅黑"}
+h1{text-align:center;padding:40px 0;font-size:1.6em;font-weight:400;}
+h2{text-align:center;padding:15px 0;font-size:1.4em;font-weight:400;}
+h3{padding:0 5%;padding-top:5px;font-size:1em;}
+.textRow{
+	margin:0 auto;
+	width:100%;max-width:500px;
+	border-bottom:2px solid #F3F3F3;
+}
+.textRow input,select{
+	margin:0 10%;
+	width:80%;height:45px;
+	border:0;outline:none;
+	text-align:right;font-size:1em;
+}
+.textRow span{
+	position:relative;top:-45px;padding-left:23%;
+	height:45px;
+	line-height:45px;
+}
+.imgRow{
+	border-top:10px solid #F3F3F3;
+	border-bottom:10px solid #F3F3F3;
+}
+.imgDiv{
+	padding:20px 0 20px 10%;
+	width:90%;border:none;
+}
+.imgText{
+	display:inline-block;
+	padding:0 2%;
+	width:19%;
+}
+.imgText img{
+	width:100%;
+}
+.imgText p{
+	text-align:center;font-size:0.8em;
+}
+textarea{
+	margin:5%;padding:5px;
+	width:90%;height:100px;resize:none;
+	outline:none;
+	border:2px solid #d2d2d2;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Old Firefox */
+	background-color:#f5f5f5;
+}
+.sub{
+	margin:0 auto;
+	margin-bottom:5%;
+	width:90%;height:30px;
+	text-align:center;color:white;line-height:30px;
+	background-color:#22c35c;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Old Firefox */
+}
+.submitted{
+	margin:0 5%;margin-bottom:10%;padding:5%;
+	width:80%;height:99px;
+	border:2px solid #38a6c8;
+	
+}
+.submitted p{
+	display:inline-block;
+	padding-bottom:7%;
+	font-size:1em;color:#939393;
+	width:65%;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.time{
+	font-size:0.8em;
+}
+.background{
+	position:fixed;display:none;width:100%;height:100%;top:0;left:0;background-color:black;z-index:998;
+}
+.imageDiv{
+	margin:0 auto;
+	height:100%;width:100%;
+	display:table;text-align:center;
+	cursor:pointer;
+}
+.imageDiv span{ 
+	display:table-cell; 
+	vertical-align:middle; 
+}  
+.imageDiv img{
+	max-height:100%;max-width:100%;
+}

@@ -1,0 +1,11 @@
+*{margin:0;padding:0;outline:0;font-family:微软雅黑}
+body{min-height:100%;width:100%;position:relative;}
+
+.tzw_img_auto_div {
+	display:table;text-align:center;
+	cursor:pointer;
+}
+.tzw_img_auto_div span{
+	display:table-cell; 
+	vertical-align:middle; 
+}

@@ -1,0 +1,107 @@
+*{padding:0;margin:0;font-family:΢���ź�}
+.titleImg{
+	margin:0 auto;
+	text-align:center;
+}
+.titleImg img {
+	padding:100px 0;
+	width:610px;
+}
+.textRow{
+	margin:50px auto;margin-bottom:100px;
+	width:760px;height:50px;
+}
+.textRow input{
+	margin-left:60px;padding-left:30px;
+	width:700px;height:50px;
+	border:none;border-bottom:2px solid black;
+	font-size:42px;
+	outline:none;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.textRow select{
+	margin-left:60px;padding-left:30px;
+	width:315px;height:50px;
+	border:none;border-bottom:2px solid black;outline:none;
+	font-size:42px;
+	outline:none;
+}
+.numberBtn{
+	position:relative;
+	left:440px;top:-64px;
+	width:210px;height:60px;
+	border:2px solid #22c35c;
+	text-align:center;line-height:60px;color:black;font-size:36px;color:white;
+	background-color:#22c35c;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	cursor:pointer;
+}
+.submitBtn{
+	margin:50px auto;
+	width:80%;height:60px;
+	display:block;
+	border:2px solid #22c35c;
+	color:white;font-size:36px;text-align:center;line-height:60px;
+	background-color:#22c35c;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	cursor:pointer;
+}
+.imgTitle{
+	margin:0 auto;margin-top:50px;
+	width:760px;
+	font-size:52px;color:#666666;
+}
+.imgTitle p{
+	font-size:20px;
+	display:inline;
+}
+.imgTitle a{
+	color:#38A6C8;
+	text-decoration:none;
+}
+.imgBox{
+	margin:0 auto;margin-top:50px;
+	width:760px;
+	font-size:42px;color:#38A6C8;
+}
+.imgDIv{
+	margin:20px 45px 6px 20px;
+	height:200px;width:160px;
+	text-align:center;
+	display:inline-block;
+	color:#939393;
+}
+.imgDIv img{
+	height:148px;width:148px;
+	cursor:pointer;
+}
+.word{
+	color:#38A6C8;font-size:42px;
+	display:inline-block;
+}
+.submitted{
+	margin:50px auto;
+	width:776px;height:306px;
+}
+.submitted p{
+	display:inline-block;
+	padding-top:40px;padding-left:50px;
+	height:42px;width:430px;
+	font-size:42px;color:#939393;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.time{
+	font-size:35px;
+}
+.download{
+	position:relative;
+	left:248px;top:-100px;
+	width:210px;height:60px;
+	display:block;
+	border:2px solid #38A6C8;
+	color:#38A6C8;font-size:36px;
+	background:none;
+	cursor:pointer;
+}

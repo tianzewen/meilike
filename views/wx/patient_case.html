@@ -1,0 +1,152 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>病例提交</title>
+	<meta http-equiv="Content-Type" content="IE=edge,chrome=1" charset="utf-8" />
+
+	<link href="../public/css/core.css" rel="stylesheet"/>
+	<script src="../public/js/jquery.min.js"></script>
+	<script src="../public/js/jsrender.min.js"></script>
+	<script src="../public/js/functions.js"></script>
+	<script src="../public/js/config.js"></script>
+	<script src="js/patient_case.js"></script>
+
+
+	<link rel="stylesheet" href="css/five.css"/>
+	<link rel="stylesheet" href="css/loaders.css"/>
+	<link rel="stylesheet" href="css/loaders.min.css"/>
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+  <body>
+  <div id="bk" style="position:fixed;background-color:black;width:100%;height:100%;text-align:center;">
+  <p style="color:white;margin-top:130px;">正在上传病例数据，请耐心等待</p><br/>
+  <p style="color:rgba(255, 255, 255, 0.61);font-size:13px">（可能需要3~5分钟）</p>
+  	<main class="loaded">
+  	<div class="loaders">
+  		<div class="loader" style="height:1px;width:1px;margin:0 auto;margin-top:58px;">
+  			<div class="loader-inner ball-clip-rotate-pulse">
+  				<div></div>
+  				<div></div>
+  			</div>
+  		</div>
+  	</div>
+  	</main>
+  	<img src="img/logo.png" style="position:fixed;bottom:40px;margin-left:-12.5%;width:25%;"/>
+  </div>
+  <div id="success" style="position:fixed;background-color:white;width:100%;height:100%;text-align:center;color:white;">
+ 	 <img style="position:relative;margin-left:50%;left:-60%;width:120%;margin-top:50px" src="img/success.jpg"/>
+  </div>
+  <canvas id="canvas" style="display:none;"></canvas>
+	  <h1>病例提交</h1>
+	  <form name="addPatientCaseForm" id="addPatientCaseForm" onsubmit="return check()">
+	  <input type='hidden' name='_csrf' value=""/>
+	  <div class="textRow" id="PNAMEROW" style="height:45px;overflow:hidden;">
+		<input style="background:url(img/c_name.png) no-repeat 0 12px" maxlength="12" name="addPatientCaseForm[name]" id="PNAME" type="text" placeholder="请输入姓名" />
+		<span>患者姓名</span>
+	  </div>
+	  <div class="textRow" id="PAGEROW" style="height:45px;overflow:hidden;">
+		<input style="background:url(img/c_age.png) no-repeat 0 12px" onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="2"  onafterpaste="this.value=this.value.replace(/\D/g,'')" name="addPatientCaseForm[age]" id="PAGE" type="text" placeholder="请输入年龄" />
+		<span>患者年龄</span>
+	  </div>
+	  <div class="textRow" id="PHONEROW" style="height:45px;overflow:hidden;">
+		<input style="background:url(img/c_phone.png) no-repeat 0 12px" onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="11"  onafterpaste="this.value=this.value.replace(/\D/g,'')" name="addPatientCaseForm[phone]" id="PHONE" type="text" placeholder="请输入电话" />
+		<span>患者电话</span>
+	  </div>
+	  <div class="textRow" style="background:url(img/c_sex.png) no-repeat 10% 12px;border:none;height:45px;overflow:hidden;">
+		<select style="width:50px;float:right;" name="addPatientCaseForm[sex]" id="PSEX">
+			<option value="1">男</option>
+			<option selected value="2">女</option>
+		</select>
+		<span style="top:0">患者性别</span>
+	  </div>
+	  <div class="textRow imgRow">
+		<h2>患者情况照片</h2>
+		<h3>口内像：<p class="redp" id="orow" style="display:inline;font-size:0.8em;line-height:2em;color:red;">（口内像照片未上传完整）</p></h3>
+		<div class="textRow imgDiv">
+			<div class="imgText">
+				<img id="one_img" src="img/o_first.jpg" onclick="document.addPatientCaseForm.one.click();"/>
+				<input id="one" name="addPatientCaseForm[zmyh]" onchange="setImagePreview('one', 'one_img')" type="file" hidden/>
+				<!-- <textarea id="oneCode" name="zmyh" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="oneCode" name="zmyh" type="text" hidden/> -->
+				<p>正面咬合</p>
+			</div>
+			<div class="imgText">
+				<img id="two_img" src="img/o_left.jpg" onclick="document.addPatientCaseForm.two.click();"/>
+				<input id="two" name="addPatientCaseForm[zcyh]" onchange="setImagePreview('two', 'two_img')" type="file" hidden/>
+				<!-- <textarea id="twoCode" name="zcyh" rows="500" cols="500" hidden></textarea>
+				<!-- <input id="twoCode" name="zcyh" type="text" hidden/> -->
+				<p>左侧咬合</p>
+			</div>
+			<div class="imgText">
+				<img id="three_img" src="img/o_right.jpg" onclick="document.addPatientCaseForm.three.click();"/>
+				<input id="three" name="addPatientCaseForm[ycyh]" onchange="setImagePreview('three', 'three_img')" type="file" hidden/>
+				<!-- <textarea id="threeCode" name="ycyh" rows="500" cols="500" hidden></textarea>
+				<!-- <input id="threeCode" name="ycyh" type="text" hidden/> -->
+				<p>右侧咬合</p>
+			</div>
+			<div class="imgText">
+				<img id="four_img" src="img/o_up.jpg" onclick="document.addPatientCaseForm.four.click();"/>
+				<input id="four" name="addPatientCaseForm[syl]" onchange="setImagePreview('four', 'four_img')" type="file" hidden/>
+				<!-- <textarea id="fourCode" name="syl" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="fourCode" name="syl" type="text" hidden/> -->
+				<p>上牙列</p>
+			</div>
+			<div class="imgText">
+				<img id="five_img" src="img/o_down.jpg" onclick="document.addPatientCaseForm.five.click();"/>
+				<input id="five" name="addPatientCaseForm[xyl]" onchange="setImagePreview('five', 'five_img')" type="file" hidden/>
+				<!-- <textarea id="fiveCode" name="xyl" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="fiveCode" name="xyl" type="text" hidden/> -->
+				<p>下牙列</p>
+			</div>
+		</div>
+	  </div>
+	  <div class="textRow imgRow" style="border-top:none;">
+		<h3>面像：<p class="redp" id="facerow" style="display:inline;font-size:0.8em;line-height:2em;color:red;">（面像照片未上传完整）</p></h3>
+		<div class="textRow imgDiv">
+			<div class="imgText">
+				<img id="six_img" src="img/f_left.jpg" onclick="document.addPatientCaseForm.six.click();"/>
+				<input id="six" name="addPatientCaseForm[zmwx]" onchange="setImagePreview('six', 'six_img')" type="file" hidden/>
+				<!-- <textarea id="sixCode" name="zmwx" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="sixCode" name="zmwx" type="text" hidden/> -->
+				<p>正面微笑</p>
+			</div>
+			<div class="imgText">
+				<img id="seven_img" src="img/f_first.jpg" onclick="document.addPatientCaseForm.seven.click();"/>
+				<input id="seven" name="addPatientCaseForm[zmfs]" onchange="setImagePreview('seven', 'seven_img')" type="file" hidden/>
+				<!-- <textarea id="sevenCode" name="zcw" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="sevenCode" name="zcw" type="text" hidden/> -->
+				<p>正面放松</p>
+			</div>
+			<div class="imgText">
+				<img id="eight_img" src="img/f_right.jpg" onclick="document.addPatientCaseForm.eight.click();"/>
+				<input id="eight" name="addPatientCaseForm[ycw]" onchange="setImagePreview('eight', 'eight_img')" type="file" hidden/>
+				<!-- <textarea id="eightCode" name="ycw" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="eightCode" name="ycw" type="text" hidden/> -->
+				<p>右侧位</p>
+			</div>
+		</div>
+	  </div>
+	  <div class="textRow imgRow" style="border-top:none;">
+		<h3>委托加工单照片：<p class="redp" id="wtrow" style="display:inline;font-size:0.8em;line-height:2em;color:red;" >（委托书照片未上传完整）</p></h3>
+		<div class="textRow imgDiv">
+			<div class="imgText" style="width:23%">
+				<img id="nine_img" src="img/file_book.png" onclick="document.addPatientCaseForm.nine.click();"/>
+				<input id="nine" name="addPatientCaseForm[wtjgd]" onchange="setImagePreview('nine', 'nine_img')" type="file" hidden/>
+				<!-- <textarea id="nineCode" name="wts" rows="500" cols="500" hidden></textarea> -->
+				<!-- <input id="nineCode" name="wts" type="text" hidden/> -->
+				<p>委托加工单</p>
+			</div>
+		</div>
+	  </div>
+	  <div class="textRow"  id="PNUMROW" style="height:45px;overflow:hidden;">
+		<input name="addPatientCaseForm[wtjgdnumber]" id="PNUM" onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="10"  onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text" placeholder="请输入编号" />
+		<span style="padding-left:5%;">委托加工单编号</span>
+	  </div>
+	  <div class="textRow imgRow" style="border-top:none;">
+		<textarea placeholder="备注说明" maxlength="150" name="addPatientCaseForm[base]" id="PBASE"></textarea>
+		<div class="sub" onclick="save()">提交</div>
+	  </div>
+	  </form>
+  </body>
+</html>

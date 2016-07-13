@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>登录</title>
+	<meta http-equiv="Content-Type" content="IE=edge,chrome=1" charset="utf-8" />
+		<link href="../public/css/core.css" rel="stylesheet"/>
+		<script src="../public/js/jquery.min.js"></script>
+		<script src="../public/js/jsrender.min.js"></script>
+		<script src="../public/js/functions.js"></script>
+		<script src="../public/js/config.js"></script>
+		<script src="js/login.js"></script>
+</head>
+<body>
+	<form id="UserLoginForm" name="UserLoginForm" method="post" action="">
+		<input type='hidden' name='_csrf' value=""/>
+		账号<input name="UserLoginForm[phone]" onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="11"  onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="请输入电话" type="text" /><br />
+		密码<input name="UserLoginForm[password]" type="text" /><br />
+		<div onclick="loginSub()">登录</div>
+	</form>
+</body>
+</html>

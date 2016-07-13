@@ -1,4 +1,11 @@
 $(function (){
+	if( !checkCookie('user') ){
+		alert("请登录后操作");
+		window.location.href=config('ip') + "views/wx/login.html";
+	}
+	var user = getCookie('user');
+	$("#doctorid").val(user['id']);
+
 	var csrfToken = getCsrf();
 	$("input[name='_csrf']").val(csrfToken);
 	
@@ -58,7 +65,7 @@ function save(){
 	var formData = new FormData(document.getElementById("addPatientCaseForm"));
 	$(".textRow").css('border-color', '#F3F3F3');
 	$(".redp").hide();
-	if(checkForm()){
+	if( !checkForm() ){
 		return;
 	}
 	$.ajax({

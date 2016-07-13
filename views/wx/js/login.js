@@ -1,15 +1,15 @@
 $(function (){
 	var csrfToken = getCsrf();
 	$("input[name='_csrf']").val(csrfToken);
-	RegisterForm.action = config('ip') + 'web/index.php?r=user/register';
+	UserLoginForm.action = config('ip') + 'web/index.php?r=user/login';
 })
 //提交用户注册表单
-function registerSub(){
-	var formData = new FormData(document.getElementById("RegisterForm"));
+function loginSub(){
+	var formData = new FormData(document.getElementById("UserLoginForm"));
 	//console.log(formData);
 	$.ajax({
       type:"post",
-	  url:config('ip') + "web/index.php?r=user/register",
+	  url:config('ip') + "web/index.php?r=user/login",
 	  data:formData,
 	  processData:false,// 告诉jQuery不要去处理发送的数据
 	  contentType:false,// 告诉jQuery不要去设置Content-Type请求头
@@ -17,8 +17,8 @@ function registerSub(){
       success:function(data){
 		  var obj = eval ("(" + data + ")");
 		  if(obj['status']){
-			  alert("注册成功，应该跳转到登录界面，but，那页面还没有，所以来提交病例吧");
-			  window.location.href=config('ip') + "views/wx/login.html";
+			  setCookie(obj.user);
+			  window.location.href=config('ip') + "views/wx/patient_case.html";
 		  } else {
 			  //删除对象中的元素
 			  delete obj.status;

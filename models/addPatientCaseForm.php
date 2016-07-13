@@ -38,6 +38,7 @@ class addPatientCaseForm extends Model
     {
         return [
             [['doctorid', 'name', 'age', 'phone', 'sex'], 'required'],
+			[['PatientCaseID', 'zmyh', 'zcyh', 'ycyh', 'syl', 'xyl', 'zmwx', 'zmfs', 'ycw', 'wtjgd', 'wtjgdnumber', 'base'], 'safe'],
         ];
     }
 	
@@ -46,7 +47,7 @@ class addPatientCaseForm extends Model
 		
 		$this->zmyh['name'] = explode(".", $this->zmyh['name']);
 		$this->zmyh['name'] = $this->zmyh['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->zmyh['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->zmyh['name'];
 		if(Tool::uploadimage( $this->zmyh, $image_path ) !== true){
 			return Tool::return_json( false, 'zmyh', '图片保存失败' );
 		}
@@ -54,7 +55,7 @@ class addPatientCaseForm extends Model
 		
 		$this->zcyh['name'] = explode(".", $this->zcyh['name']);
 		$this->zcyh['name'] = $this->zcyh['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->zcyh['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->zcyh['name'];
 		if(Tool::uploadimage( $this->zcyh, $image_path ) !== true){
 			return Tool::return_json( false, 'zcyh', '图片保存失败' );
 		}
@@ -62,7 +63,7 @@ class addPatientCaseForm extends Model
 		
 		$this->ycyh['name'] = explode(".", $this->ycyh['name']);
 		$this->ycyh['name'] = $this->ycyh['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->ycyh['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->ycyh['name'];
 		if(Tool::uploadimage( $this->ycyh, $image_path ) !== true){
 			return Tool::return_json( false, 'ycyh', '图片保存失败' );
 		}
@@ -70,7 +71,7 @@ class addPatientCaseForm extends Model
 		
 		$this->syl['name'] = explode(".", $this->syl['name']);
 		$this->syl['name'] = $this->syl['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->syl['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->syl['name'];
 		if(Tool::uploadimage( $this->syl, $image_path ) !== true){
 			return Tool::return_json( false, 'syl', '图片保存失败' );
 		}
@@ -78,7 +79,7 @@ class addPatientCaseForm extends Model
 		
 		$this->xyl['name'] = explode(".", $this->xyl['name']);
 		$this->xyl['name'] = $this->xyl['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->xyl['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->xyl['name'];
 		if(Tool::uploadimage( $this->xyl, $image_path ) !== true){
 			return Tool::return_json( false, 'xyl', '图片保存失败' );
 		}
@@ -86,7 +87,7 @@ class addPatientCaseForm extends Model
 		
 		$this->zmwx['name'] = explode(".", $this->zmwx['name']);
 		$this->zmwx['name'] = $this->zmwx['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->zmwx['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->zmwx['name'];
 		if(Tool::uploadimage( $this->zmwx, $image_path ) !== true){
 			return Tool::return_json( false, 'zmwx', '图片保存失败' );
 		}
@@ -94,7 +95,7 @@ class addPatientCaseForm extends Model
 		
 		$this->zmfs['name'] = explode(".", $this->zmfs['name']);
 		$this->zmfs['name'] = $this->zmfs['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->zmfs['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->zmfs['name'];
 		if(Tool::uploadimage( $this->zmfs, $image_path ) !== true){
 			return Tool::return_json( false, 'zmfs', '图片保存失败' );
 		}
@@ -102,7 +103,7 @@ class addPatientCaseForm extends Model
 		
 		$this->ycw['name'] = explode(".", $this->ycw['name']);
 		$this->ycw['name'] = $this->ycw['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->ycw['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->ycw['name'];
 		if(Tool::uploadimage( $this->ycw, $image_path ) !== true){
 			return Tool::return_json( false, 'ycw', '图片保存失败' );
 		}
@@ -110,20 +111,21 @@ class addPatientCaseForm extends Model
 		
 		$this->wtjgd['name'] = explode(".", $this->wtjgd['name']);
 		$this->wtjgd['name'] = $this->wtjgd['name'][1];
-		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).'.'.$this->wtjgd['name'];
+		$image_path = '../uploadfile/patient/'.Tool::timeToMillisecond(microtime()).Tool::sixnumber().'.'.$this->wtjgd['name'];
 		if(Tool::uploadimage( $this->wtjgd, $image_path ) !== true){
 			return Tool::return_json( false, 'wtjgd', '图片保存失败' );
 		}
 		$this->wtjgd = $image_path;
 		
 		//实例化Workbasicinfo的AR
-		$patient = new Workbasicinfo();
+		$patient = new PatientCase();
 		$this->PatientCaseID = Tool::timeToMillisecond(microtime());
 		$patient->setAttributes([
 			'doctorid' => $this->doctorid,
 			'PatientCaseID' => $this->PatientCaseID,
 			'name' => $this->name,
 			'age' => $this->age,
+			'sex' => $this->sex,
 			'phone' => $this->phone,
 			'zmyh' => $this->zmyh,
 			'zcyh' => $this->zcyh,
@@ -137,6 +139,7 @@ class addPatientCaseForm extends Model
 			'wtjgdnumber' => $this->wtjgdnumber,
 			'base' => $this->base,
 		]);
+		
 		//添加作品信息
 		if( $patient->save() ){
 			return Tool::return_json( true );

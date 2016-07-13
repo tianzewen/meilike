@@ -14,6 +14,16 @@ class Tool
 	}
 	
 	/*
+	 * 生成随机数
+	 */
+	public static function sixnumber() 
+	{
+		$arr=range(0, 10);
+		shuffle($arr);
+		return $arr[0].$arr[1].$arr[2].$arr[3].$arr[4].$arr[5];
+	}
+	
+	/*
 	 * 生成返回数组
 	 */
 	public static function return_json( $bool, $array=null, $value=null )

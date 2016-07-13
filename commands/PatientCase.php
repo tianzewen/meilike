@@ -21,6 +21,7 @@ class PatientCase extends ActiveRecord
     {
         return [
             [['doctorid', 'name', 'age', 'phone', 'sex'], 'required'],
+			[['PatientCaseID', 'zmyh', 'zcyh', 'ycyh', 'syl', 'xyl', 'zmwx', 'zmfs', 'ycw', 'wtjgd', 'wtjgdnumber', 'base'], 'safe'],
         ];
     }
 

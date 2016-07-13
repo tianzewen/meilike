@@ -6,7 +6,7 @@ $(function (){
 	$("#bk").hide();
 	$("#success").hide();
 	
-	addPatientCaseForm.action = config('ip') + 'web/index.php?r=patient/AddPatient';
+	addPatientCaseForm.action = config('ip') + 'web/index.php?r=patient/addpatient';
 })
 function checkForm(){
 	if($("#PNAME").val() =="" || $("#PNAME").val()==undefined){
@@ -63,7 +63,7 @@ function save(){
 	}
 	$.ajax({
 		type:"post",
-		url:config('ip') + "web/index.php?r=patient/AddPatient",
+		url:config('ip') + "web/index.php?r=patient/addpatient",
 		data:formData,
 		processData:false,// 告诉jQuery不要去处理发送的数据
 		contentType:false,// 告诉jQuery不要去设置Content-Type请求头

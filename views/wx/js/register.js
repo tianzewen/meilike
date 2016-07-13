@@ -17,7 +17,7 @@ function registerSub(){
       success:function(data){
 		  var obj = eval ("(" + data + ")");
 		  if(obj['status']){
-			  alert("注册成功，生成本地cookie");
+			  alert("注册成功，应该跳转到登录界面，but，那页面还没有，所以来提交病例吧");
 			  window.location.href=config('ip') + "views/wx/patient_case.html";
 		  } else {
 			  //删除对象中的元素

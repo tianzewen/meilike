@@ -39,7 +39,7 @@
   </div>
   <canvas id="canvas" style="display:none;"></canvas>
 	  <h1>病例提交</h1>
-	  <form name="addPatientCaseForm" id="addPatientCaseForm" onsubmit="return check()">
+	  <form name="addPatientCaseForm" id="addPatientCaseForm" enctype="multipart/form-data" method="post" action="">
 	  <input type='hidden' name='_csrf' value=""/>
 	  <div class="textRow" id="PNAMEROW" style="height:45px;overflow:hidden;">
 		<input style="background:url(img/c_name.png) no-repeat 0 12px" maxlength="12" name="addPatientCaseForm[name]" id="PNAME" type="text" placeholder="请输入姓名" />
@@ -147,6 +147,7 @@
 		<textarea placeholder="备注说明" maxlength="150" name="addPatientCaseForm[base]" id="PBASE"></textarea>
 		<div class="sub" onclick="save()">提交</div>
 	  </div>
+	  <input type="submit"/>
 	  </form>
   </body>
 </html>

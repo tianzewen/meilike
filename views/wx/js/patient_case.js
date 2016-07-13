@@ -6,7 +6,7 @@ $(function (){
 	$("#bk").hide();
 	$("#success").hide();
 	
-	addPatientCaseForm.action = config('ip') + 'web/index.php?r=user/register';
+	addPatientCaseForm.action = config('ip') + 'web/index.php?r=patient/AddPatient';
 })
 function checkForm(){
 	if($("#PNAME").val() =="" || $("#PNAME").val()==undefined){
@@ -58,7 +58,7 @@ function save(){
 	var formData = new FormData(document.getElementById("addPatientCaseForm"));
 	$(".textRow").css('border-color', '#F3F3F3');
 	$(".redp").hide();
-	if(!checkForm()){
+	if(checkForm()){
 		return;
 	}
 	$.ajax({

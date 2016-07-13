@@ -11,7 +11,7 @@ class PatientCase extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'PatientCase';
+        return 'patientcase';
     }
 
     /**

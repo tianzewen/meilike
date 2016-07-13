@@ -80,7 +80,8 @@ class RegisterForm extends Model
 			'permissions' => 'user',
 			'phone' => $this->phone,
 			//哈希双向加密
-			'password' => password_hash($this->password, PASSWORD_DEFAULT),
+			//'password' => password_hash($this->password, PASSWORD_DEFAULT),
+			'password' => md5($this->password),
 		]);
 		//添加用户信息
 		if( $user->save() ){

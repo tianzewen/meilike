@@ -27,6 +27,7 @@ class Userbasicinfo extends ActiveRecord
             [['password', 'mask'], 'string', 'max' => 60],
             [['phone'], 'string', 'max' => 11],
             [['phone'], 'unique'],
+			[['permissions'], 'safe'],
         ];
     }
 
